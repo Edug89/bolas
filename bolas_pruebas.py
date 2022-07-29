@@ -11,29 +11,31 @@ class Cuadrado:
         self.vx = vx
         self.vy = vy
 
-    def mover(self, xmax, ymax):
+    def mover(self,):
         self.x += self.vx
         self.y += self.vy
-        if self.x <= 0 or self.x >= xmax - self.w:
-            self.vx *= -1
+        if self.x >= tam_pan[0] - self.w or self.x  <= 0:
+            self.vx = - self.vx
+        if self.y >= tam_pan[1] - self.h or self.y  <= 0:
+            self.vy = - self.vy
 
-        if self.y <= 0 or self.y >= ymax - self.h:
-            self.vy *= -1
+    def dibujar(self, pantalla):
+        pg.draw.rect(pantalla,self.color, (self.x, self.y, self.w, self.h))
         
 pg.init()
-tamaño_pantalla = (800,600)
-pantalla_principal = pg.display.set_mode((tamaño_pantalla))
+cantidad_cuadrados = 50
+tam_pan = (800,600)
 
+pantalla_principal = pg.display.set_mode((tam_pan))
 pg.display.set_caption("Bolitas rebotando")
 diccionario = {}
-for cuadrados_finitos in range(50):
+for cuadrados_finitos in range(cantidad_cuadrados):
     color = (random.randint(0,255), random.randint(0,255), random.randint(0,255))
     #tamano = (random.randint(10,45), random.randint(10,45))#revisar tamaño
     velocidad = (random.randint(1,10), random.randint(1,10))
-    diccionario[cuadrados_finitos] = Cuadrado(400,300, color = color, vx = velocidad[0], vy = velocidad[1])#revisar velocidad, tamaño no está instanciado
-
-
+    diccionario[cuadrados_finitos] = Cuadrado(400,300, color = color, vx = velocidad[0], vy = velocidad[1])
 game_over = False
+
 while not game_over:
     for evento in pg.event.get():
         if evento.type == pg.QUIT:

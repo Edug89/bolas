@@ -31,7 +31,6 @@ pg.display.set_caption("Bolitas rebotando")
 diccionario = {}
 for cuadrados_finitos in range(cantidad_cuadrados):
     color = (random.randint(0,255), random.randint(0,255), random.randint(0,255))
-    #tamano = (random.randint(10,45), random.randint(10,45))#revisar tamaño
     velocidad = (random.randint(1,10), random.randint(1,10))
     diccionario[cuadrados_finitos] = Cuadrado(400,300, color = color, vx = velocidad[0], vy = velocidad[1])
 game_over = False
@@ -43,8 +42,8 @@ while not game_over:
 
     pantalla_principal.fill((0,0,255))
     for cuadrados_finitos in range(50):
-        diccionario[cuadrados_finitos].dibujar(pantalla_principal)#Pendiente arreglar
-        diccionario[cuadrados_finitos].mover()#Pendiente arreglar
+        diccionario[cuadrados_finitos].dibujar(pantalla_principal)
+        diccionario[cuadrados_finitos].mover()
 
 
     pg.display.flip()

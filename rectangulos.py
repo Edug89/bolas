@@ -16,7 +16,7 @@ class Rectangulo:
         self.y += self.vy
         if self.x >= tam_pantalla[0] - self.w or self.x <= 0:
             self.vx = - self.vx
-        if self.y >= tam_pantalla[0] - self.h or self.y <= 0:
+        if self.y >= tam_pantalla[1] - self.h or self.y <= 0:
             self.vy = - self.vy
 
     def dibujar(self,pantalla):
@@ -25,7 +25,7 @@ class Rectangulo:
 
 pg.init()
 tam_pantalla = (800,600)
-cantidad_rectangulos = (10)
+cantidad_rectangulos = (15)
 
 pantalla_principal = pg.display.set_mode((tam_pantalla))
 pg.display.set_caption("Rectángulos botarines")
@@ -36,6 +36,7 @@ for rectangulos_saltarines in range(cantidad_rectangulos):
     tamano = (random.randint(25,55), random.randint(25,55))
     diccionario[rectangulos_saltarines] = Rectangulo(400,300, color = color, vx = velocidad[0], vy = velocidad[1], w = tamano[0], h = tamano[1])
 game_over = False
+
 
 while not game_over:
     for evento in pg.event.get():

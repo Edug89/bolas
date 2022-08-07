@@ -25,15 +25,15 @@ class Rectangulo:
 
 pg.init()
 tam_pantalla = (800,600)
-cantidad_rectangulos = (15)
+cantidad_rectangulos = (50)
 
 pantalla_principal = pg.display.set_mode((tam_pantalla))
 pg.display.set_caption("Rectángulos botarines")
 diccionario = {}
 for rectangulos_saltarines in range(cantidad_rectangulos):
     color = (random.randint(0,255), random.randint(0,255), random.randint(0,255))
-    velocidad = (random.randint(1,10), random.randint(1,10))
-    tamano = (random.randint(25,55), random.randint(25,55))
+    velocidad = (random.randint(1,5), random.randint(1,5))
+    tamano = (random.randint(15,45), random.randint(15,55))
     diccionario[rectangulos_saltarines] = Rectangulo(400,300, color = color, vx = velocidad[0], vy = velocidad[1], w = tamano[0], h = tamano[1])
 game_over = False
 
@@ -52,3 +52,4 @@ while not game_over:
 
 pg.quit()
 
+#Pendiente de hacer prueba con un cuadrado en centro de la pantalla que no se mueva

@@ -24,8 +24,8 @@ class Rectangulo:
 
 
 pg.init()
-tam_pantalla = (800,600)
-cantidad_rectangulos = (50)
+tam_pantalla = (720,720)
+cantidad_rectangulos = (100)
 
 pantalla_principal = pg.display.set_mode((tam_pantalla))
 pg.display.set_caption("Rectángulos botarines")
